@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{CHALTITLE}}</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="panel" id="panel" style="display:block;">
+        <h2><span>Connect to:</span></h2>
+        <div class="content">
+            <code id="text">
+
+            </code>
+            </br>
+            <div class="buttons">
+                <!-- <a href="libc.so.6" class="btn">Download libc.so.6</a> -->
+                <a href="{{BINNAME}}" class="btn">Download binary</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var div = document.getElementById("text");
+    div.innerHTML = "nc " + location.hostname + " {{CHALPORT}}";
+</script>
+</body>
+</html>
+
