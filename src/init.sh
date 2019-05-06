@@ -7,8 +7,10 @@ sed -i "s/{{CHALPORT}}/${CHALPORT}/g" /var/www/html/index.html
 sed -i "s/{{CHALPORT}}/${CHALPORT}/g" /etc/services
 sed -i "s/{{BINNAME}}/${BINNAME}/g" /etc/inetd.conf
 
-# plant our flag
-printf "${FLAG}" >> /flag.txt
+# plant our flag, and destroy all evidence!!
+echo $FLAG >> /flag.txt
+unset FLAG
+exec sh
 
 #start nginx
 /usr/sbin/nginx
