@@ -9,8 +9,10 @@ sed -i "s/{{BINNAME}}/${BINNAME}/g" /etc/inetd.conf
 
 # plant our flag, and destroy all evidence!!
 echo $FLAG >> /flag.txt
-unset FLAG
-exec sh
+if [ ! -z $FLAG ]; then
+    unset FLAG
+    exec sh /init.sh
+fi
 
 #start nginx
 /usr/sbin/nginx
